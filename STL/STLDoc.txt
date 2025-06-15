@@ -1,0 +1,42 @@
+What are STL Container Design Patterns?
+They are the common principles, conventions, and techniques used to build containers in the C++ Standard Library, such as:
+
+Generic programming: Using templates to make containers work with any data type.
+
+Allocator awareness: Containers accept allocator templates to customize memory management.
+
+Iterators: Providing standardized ways to traverse container elements.
+
+Exception safety: Strong guarantees about resource management and error handling.
+
+Value semantics: Containers manage their own copies of elements safely.
+
+Efficiency: Minimizing overhead with careful memory and object management.
+
+Separation of concerns: Clear separation between storage management, element management, and interface.
+
+
+
+ALLOCATORs
+===========
+
+*These are basically used to manage memory allocations and deallocations for STL containers ,
+to make them work indendently of underlining memory model used
+
+
+*Default Allocator --> std::allocator --> used new and delete keywords
+*Custom Allocator  --> must follow standards
+
+Allocator Traits --> std::allocator_traits --> It is an interface/Utility b/w containers and custom allocators 
+which provides implementations/support for missing parts of custom allocators , thus allowing the containers to work with custom allocators
+without having to worry if they provide full implementation or not
+
+
+C++ Version	 Allocator Support	Key Features
+C++98	     ✅ Introduced          Verbose, manual, rebind, construct/destroy
+C++03	     ✅ Maintained	No big changes
+C++11	     ✅ Improved	allocator_traits, move-aware, trait types
+C++14	     ✅ Stable	Minor improvements
+C++17	     ✅ Simplified	Deprecated old typedefs/functions
+C++20	     ✅ Modernized	Cleaner defaults, allocator_traits preferred
+C++23+	     ✅ Ongoing	No big changes, cleaner interface
